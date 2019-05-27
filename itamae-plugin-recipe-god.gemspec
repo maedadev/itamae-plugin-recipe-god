@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{itamae recipe for god process monitoring framework}
   spec.description   = %q{itamae recipe for god process monitoring framework}
+  spec.homepage      = "https://github.com/maedadev/itamae-plugin-recipe-god"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
