@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["y-matsuda"]
   spec.email         = ["matsuda@lab.acs-jp.com"]
 
-  spec.summary       = %q{itamae resource for god process monitoring framework}
-  spec.description   = %q{itamae resource for god process monitoring framework}
+  spec.summary       = %q{itamae recipe for god process monitoring framework}
+  spec.description   = %q{itamae recipe for god process monitoring framework}
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.

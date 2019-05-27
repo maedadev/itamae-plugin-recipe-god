@@ -1,6 +1,6 @@
 # Itamae::Plugin::Recipe::God
 
-itamae resource for god process monitoring framework
+itamae recipe for god process monitoring framework
 
 ## Installation
 
