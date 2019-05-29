@@ -20,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include this recpie as:
+
+    include_recipe 'god'
+
+This recipe will install god and generate the following files.
+
+* /etc/god/master.conf
+
+  This is the master file for god configuration. It load all cofiguration files with extension .god under the directory /etc/god/
+
+* /etc/logrotate.d/god
+
+  god writes logfile to /var/log/god.log.
+  This recipe generages logrotation config file to rotate it on daily basis.
+
+* /etc/init.d/god
+
+  service script for SysV init
 
 ## Development
 
