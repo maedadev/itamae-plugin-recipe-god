@@ -28,7 +28,7 @@ This recipe will install god and generate the following files.
 
 * /etc/god/master.conf
 
-  This is the master file for god configuration. It load all cofiguration files with extension .god under the directory /etc/god/
+  This is the master file for god configuration. It loads all cofiguration files with extension .god under the directory /etc/god/
 
 * /etc/logrotate.d/god
 
