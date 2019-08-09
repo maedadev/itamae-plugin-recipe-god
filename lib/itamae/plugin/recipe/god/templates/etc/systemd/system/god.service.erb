@@ -1,0 +1,11 @@
+[Unit]
+Description=God: A process monitoring framework in Ruby
+After=network.target
+
+[Service]
+PIDFile=<%= @pid %>
+ExecStart=<%= @command %> -c <%= @config %> -P <%= @pid %> -l <%= @log %> --log-level <%= @log_level %>
+ExecStop=<%= @command %> quit
+
+[Install]
+WantedBy=multi-user.target
