@@ -37,7 +37,13 @@ This recipe will install god and generate the following files.
 
 * /etc/init.d/god
 
-  service script for SysV init
+  service script for SysV init.   
+  If the system does not use systemd such as CentOS6, configure for SysV init.
+
+* /etc/systemd/system/god.service
+
+  Systemd Unit File.   
+  If CentOS7, configure for systemd.
 
 ## Development
 
