@@ -8,16 +8,16 @@
 
 . /etc/rc.d/init.d/functions
 
-PID=/var/run/god.pid
-CONFIG=/etc/god/master.conf
-LOG=/var/log/god.log
+PID=<%= @pid %>
+CONFIG=<%= @config %>
+LOG=<%= @log %>
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RETVAL=0
 
 case "$1" in
     start)
       echo -n 'Starting god: '
-      god -P $PID -c $CONFIG -l $LOG --log-level info
+      god -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
       echo
       RETVAL=$?
   ;;
@@ -32,7 +32,7 @@ case "$1" in
       god quit
       echo
       echo -n 'Starting god: '
-      god -P $PID -c $CONFIG -l $LOG --log-level info
+      god -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
       echo
       RETVAL=$?
   ;;
