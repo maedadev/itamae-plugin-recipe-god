@@ -26,13 +26,12 @@ service_variables = {
 
 case "#{node.platform_family}-#{node.platform_version}"
 when /rhel-7\.(.*?)/
-  which_god = run_command('which god')
   template '/etc/systemd/system/god.service' do
     user 'root'
     owner 'root'
     group 'root'
     mode '755'
-    variables service_variables.merge({command: which_god.stdout.chomp})
+    variables service_variables
   end
 else
   template '/etc/init.d/god' do

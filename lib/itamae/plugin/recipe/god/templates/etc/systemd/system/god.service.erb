@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 PIDFile=<%= @pid %>
-ExecStart=<%= @command %> -c <%= @config %> -P <%= @pid %> -l <%= @log %> --log-level <%= @log_level %>
-ExecStop=<%= @command %> quit
+ExecStart=<%= `which god`.chomp %> -c <%= @config %> -P <%= @pid %> -l <%= @log %> --log-level <%= @log_level %>
+ExecStop=<%= `which god`.chomp %> quit
 
 [Install]
 WantedBy=multi-user.target
