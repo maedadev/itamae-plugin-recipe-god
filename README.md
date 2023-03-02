@@ -45,13 +45,13 @@ This recipe will install god and generate the following files.
   Systemd Unit File.   
   If CentOS7, configure for systemd.
 
-In default, This recipe will install "god" gem from rubygems.org.
+By default, This recipe will install "god" gem from rubygems.org.
 You can install another god by specifying  "ALTERNATIVE_GOD" environment variables.
 
     ALTERNATIVE_GOD="gem name"
     ALTERNATIVE_GOD="path/to/gemfile"
 
-If you will specify gem name as "ALTERNATIVE_GOD" environment variables, you can specify the version as "ALTERNATIVE_GOD_VERSION" environment varialbes.
+When you specify gem name as "ALTERNATIVE_GOD" environment variables, then you can specify the version as "ALTERNATIVE_GOD_VERSION" environment varialbes.
 
 ## Development
 
