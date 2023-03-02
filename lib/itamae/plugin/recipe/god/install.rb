@@ -1,5 +1,23 @@
+alt_god = ENV['ALTERNATIVE_GOD']
+god_gem =
+  case alt_god
+  when %r!\.gem\z! then  # Ends with '.gem'
+    { package: alt_god,
+      version: nil
+    }
+  when %r!\A\S+\z! then  # Matches characters without white spaces
+    { package: alt_god,
+      version: ENV['ALTERNATIVE_GOD_VERSION']
+    }
+  else
+    { package: 'god',
+      version: '0.13.7'
+    }
+  end
+
 gem_package 'god' do
-  version '0.13.7'
+  package_name god_gem[:package]
+  version god_gem[:version]
   user 'root'
 end
 
