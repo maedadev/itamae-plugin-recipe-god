@@ -15,14 +15,10 @@ god_gem =
     }
   end
 
-# if rbenv is not installed or rbenv points to system ruby, then we consider that sudo is required.
-require_sudo = ! system("which rbenv > /dev/null 2>&1 && rbenv version | grep -vq '^system$'")
-
-
 gem_package 'god' do
   package_name god_gem[:package]
   version god_gem[:version]
-  user 'root' if require_sudo
+  user 'root'
 end
 
 directory '/etc/god' do
