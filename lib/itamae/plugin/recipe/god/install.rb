@@ -22,6 +22,7 @@ god_gem =
 gem_package 'god' do
   package_name god_gem[:package]
   version god_gem[:version]
+  options ['-N']
   user 'root'
 end
 
