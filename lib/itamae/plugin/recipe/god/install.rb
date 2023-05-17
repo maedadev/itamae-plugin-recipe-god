@@ -1,6 +1,6 @@
 alt_god = ENV['ALTERNATIVE_GOD']
 god_gem =
-  case ::File.basename(alt_god)
+  case ::File.basename(alt_god.to_s)
   when %r!\Agod-.gem\z! then  # If package_name starts with 'god-' and ends with '.gem', then version can be extracted.
     { package: alt_god,
       version: ::File.basename(alt_god)[/god-(.+)\.gem/, 1]
