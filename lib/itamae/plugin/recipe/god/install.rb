@@ -48,8 +48,8 @@ service_variables = {
 }
 
 case "#{node.platform_family}-#{node.platform_version}"
-when /rhel-7\.(.*?)/
-  template '/etc/systemd/system/god.service' do
+when /rhel-6\.(.*?)/
+  template '/etc/init.d/god' do
     user 'root'
     owner 'root'
     group 'root'
@@ -57,7 +57,7 @@ when /rhel-7\.(.*?)/
     variables service_variables
   end
 else
-  template '/etc/init.d/god' do
+  template '/etc/systemd/system/god.service' do
     user 'root'
     owner 'root'
     group 'root'
