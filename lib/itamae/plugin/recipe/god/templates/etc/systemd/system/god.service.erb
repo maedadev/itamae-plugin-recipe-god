@@ -3,6 +3,7 @@ Description=God: A process monitoring framework in Ruby
 After=network.target
 
 [Service]
+EnvironmentFile=-/etc/sysconfig/god
 PIDFile=<%= @pid %>
 ExecStart=<%= `which god`.chomp %> -c <%= @config %> -P <%= @pid %> -l <%= @log %> --log-level <%= @log_level %>
 ExecStop=<%= `which god`.chomp %> quit
