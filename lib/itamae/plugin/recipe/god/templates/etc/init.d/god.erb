@@ -8,6 +8,7 @@
 
 . /etc/rc.d/init.d/functions
 
+GOD_BIN=<%= @god_bin %>
 PID=<%= @pid %>
 CONFIG=<%= @config %>
 LOG=<%= @log %>
@@ -17,27 +18,27 @@ RETVAL=0
 case "$1" in
     start)
       echo -n 'Starting god: '
-      god -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
+      $GOD_BIN -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
       echo
       RETVAL=$?
   ;;
     stop)
       echo -n 'Stopping god: '
-      god quit
+      $GOD_BIN quit
       echo
       RETVAL=$?
   ;;
     restart)
       echo -n 'Stopping god: '
-      god quit
+      $GOD_BIN quit
       echo
       echo -n 'Starting god: '
-      god -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
+      $GOD_BIN -P $PID -c $CONFIG -l $LOG --log-level <%= @log_level %>
       echo
       RETVAL=$?
   ;;
     status)
-      god status
+      $GOD_BIN status
       RETVAL=$?
   ;;
     *)

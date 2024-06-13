@@ -40,7 +40,9 @@ template '/etc/god/master.conf' do
   mode '644'
 end
 
+ruby_bin_dir = node.languages.ruby.bin_dir rescue nil
 service_variables = {
+  god_bin: (ruby_bin_dir ? "#{ruby_bin_dir}/god" : 'god'),
   pid: '/var/run/god.pid',
   config: '/etc/god/master.conf',
   log: '/var/log/god.log',
