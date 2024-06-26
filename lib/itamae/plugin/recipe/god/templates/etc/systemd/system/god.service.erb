@@ -8,7 +8,7 @@ Environment="PID_FILE=<%= @pid %>"
 Environment="LOG_FILE=<%= @log %>"
 Environment="LOG_LEVEL=<%= @log_level %>"
 EnvironmentFile=-/etc/sysconfig/god
-PIDFile=$PID_FILE
+PIDFile=<%= @pid %>
 ExecStart=<%= @god_bin %> -c $CONF_FILE -P $PID_FILE -l $LOG_FILE --log-level $LOG_LEVEL
 ExecStop=<%= @god_bin %> quit
 
