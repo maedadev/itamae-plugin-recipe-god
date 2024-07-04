@@ -40,9 +40,10 @@ template '/etc/god/master.conf' do
   mode '644'
 end
 
-ruby_bin_dir = node.languages.ruby.bin_dir rescue nil
+god_bin = ENV['GOD_BIN'] || `sudo which god`.chomp
+
 service_variables = {
-  god_bin: (ruby_bin_dir ? "#{ruby_bin_dir}/god" : 'god'),
+  god_bin: god_bin,
   pid: '/var/run/god.pid',
   config: '/etc/god/master.conf',
   log: '/var/log/god.log',
