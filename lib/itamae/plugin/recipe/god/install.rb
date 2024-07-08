@@ -40,7 +40,21 @@ template '/etc/god/master.conf' do
   mode '644'
 end
 
-god_bin = ENV['GOD_BIN'] || `sudo which god`.chomp
+# Non-frozen string
+god_bin = +"#{ENV['GOD_BIN'] || ''}"
+if god_bin.empty?
+  # Tentatively, god command is located in ruby binary directory.
+  ruby_bin_dir = node.languages.ruby.bin_dir rescue nil
+  god_bin.replace(ruby_bin_dir ? "#{ruby_bin_dir}/god" : 'god')
+
+  # Locate god command on host.
+  local_ruby_block 'which god' do
+    block do
+      bin_path = run_command('sudo which god').stdout.chomp
+      god_bin.replace(bin_path) unless bin_path.empty?
+    end
+  end
+end
 
 service_variables = {
   god_bin: god_bin,
